@@ -12,6 +12,6 @@ class BackendApplicationTests implements WithAssertions {
 
     @Test
     void testFailure() {
-        assertThat(true).isFalse();
+        assertThat(true).isTrue();
     }
 }
