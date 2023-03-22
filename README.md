@@ -24,7 +24,7 @@ git pull --rebase origin main
 
 Always bring your changes to the main, via Pull-Requests. In th feature, the main branch will be protected:
 
-When
+When merging the PR, select *Squash and merge*
 
 ## Development Setup
 
