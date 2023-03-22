@@ -1,0 +1,37 @@
+name: "Pull request"
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Run only one workflow for a pull request and cancel older workflow if there is one running
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-preview-deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@master
+
+      - name: Java setup
+        uses: actions/setup-java@v3
+        with:
+          java-version: 19
+          distribution: corretto
+
+      - name: Gradle build 📦
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build
+
+      - name: Publish test report
+        uses: mikepenz/action-junit-report@v3
+        if: always() # always run even if the previous step fails
+        with:
+          report_paths: '**/build/test-results/test/TEST-*.xml'
