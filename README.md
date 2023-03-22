@@ -44,3 +44,9 @@ Then type gradle. Now you get proposals for gradle tasks
 # ! run always before committing
 gradle spotlessApply check
 ```
+
+### Run application locally
+
+```shell
+gradle bootRun --args='--spring.profiles.active=local'    
+```
