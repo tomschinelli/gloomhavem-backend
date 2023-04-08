@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  gloomhaven-db:
+    image: postgres:13
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gloomhaven-backend
+    volumes:
+      - "./local/postgres.conf:/etc/postgresql/postgresql.conf"
+    command: "postgres -c 'config_file=/etc/postgresql/postgresql.conf'"
+    networks:
+      - gloomhaven-db
+networks:
+  gloomhaven-db:
