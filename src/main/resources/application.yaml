@@ -4,4 +4,4 @@ spring:
     username: ${DB_USER}
     password: ${DB_PASSWORD}
     hikari:
-      maximum-pool-size: 20
+      maximum-pool-size: 10
