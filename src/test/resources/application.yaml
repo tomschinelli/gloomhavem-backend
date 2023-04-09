@@ -1,0 +1,21 @@
+logging:
+  level:
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    org.springframework.jdbc.datasource.DataSourceTransactionManager: DEBUG
+
+
+spring:
+  datasource:
+    # Alternative way to start a testcontainer
+    # https://www.testcontainers.org/modules/databases/jdbc/
+    # The database runs a long as the spring context is running.
+    # This means test share the database! Which is okay as long as the tests are transactional.
+    # Consult the Spring annotation of the test to find out if the tests are transactional
+    url: jdbc:tc:postgresql:13:///integration-tests-db
+    hikari:
+      # prevent the connection pool from using up all the connection of our db testcontainer
+      maximum-pool-size: 2
+  test:
+    database:
+#       prevent DataJdbcTest to replace the database with an in memory database
+      replace: none
