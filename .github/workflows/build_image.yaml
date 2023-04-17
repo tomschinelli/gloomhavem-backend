@@ -25,4 +25,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: "ghcr.io/tomschinelligloomhaven-backund:${{github.ref_name}}"
+          tags: "ghcr.io/tomschinelli/gloomhaven-backund:${{github.ref_name}}"
