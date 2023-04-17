@@ -10,7 +10,17 @@ tag=0.x.x
 git tag -a $tag -m "Create Release $tag"
 git push --tags
 ```
+### Run deployment locally
+```shell
+docker run ghcr.io/tomschinelli/gloomhaven-backend:0.0.3   
+docker run -p 80:8080  ghcr.io/tomschinelli/gloomhaven-backend:0.0.3
 
+# run health check
+curl localhost:8080/actuator/health
+ 
+# ❯ curl localhost:8080/actuator/health
+# {"status":"UP"} 
+```
 ## Development Setup
 
 ### Requirements
