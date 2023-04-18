@@ -5,7 +5,7 @@ plugins {
     id 'com.diffplug.spotless' version '6.18.0'
     id 'org.openapi.generator' version '6.5.0'
     id 'jacoco'
-    id "io.freefair.lombok" version "6.6.3"
+    id "io.freefair.lombok" version "8.0.1"
 
 }
 ext {
